@@ -1,11 +1,13 @@
 package com.bombadu.aprikot
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -120,7 +122,45 @@ class MainActivity : AppCompatActivity() {
                 }
                 builder.show()
             }
+
+
+            if(item.itemId == R.id.custom_dialog) {
+                showCustomDialog()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showCustomDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.custom_dialog_layout)
+        val seekBar = dialog.findViewById<SeekBar>(R.id.seekbar)
+        val closeButton = dialog.findViewById<Button>(R.id.close_button)
+        val seekCountTextView = dialog.findViewById<TextView>(R.id.seek_count_text_view)
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                // Display the current progress of SeekBar
+                seekCountTextView.text = "$i"
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // Do something
+                //Toast.makeText(applicationContext, "start tracking", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // Do something
+                //Toast.makeText(applicationContext, "stop tracking", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        closeButton.setOnClickListener(){
+            dialog.cancel()
+        }
+
+        dialog.show()
     }
 }

@@ -10,4 +10,12 @@
 
     </item>
 
+    <item
+        android:id="@+id/custom_dialog"
+        android:title="Custom Dialog"
+        android:orderInCategory="20"
+        app:showAsAction="never">
+
+    </item>
+
 </menu>
