@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        startActivity(Intent(this, SecondActivity::class.java))
+
+
+
         var addButton = findViewById<Button>(R.id.addButton)
         var minusButton = findViewById<Button>(R.id.minusButton)
         var textView = findViewById<TextView>(R.id.textView)

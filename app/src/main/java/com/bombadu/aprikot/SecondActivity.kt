@@ -29,7 +29,9 @@ class SecondActivity : AppCompatActivity() {
         wordList.add("Wow!")
         wordList.add("Kotlin")
 
+       // wordList.sort()
         wordList.sort()
+        wordList.reverse()
 
 
         for (word in wordList) println(word)
