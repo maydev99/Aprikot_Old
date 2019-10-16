@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, SecondActivity::class.java))
+        //startActivity(Intent(this, StockActivity::class.java))
 
 
 
@@ -130,6 +130,10 @@ class MainActivity : AppCompatActivity() {
 
             if(item.itemId == R.id.custom_dialog) {
                 showCustomDialog()
+            }
+
+            if (item.itemId == R.id.stock){
+                startActivity(Intent(this, StockActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

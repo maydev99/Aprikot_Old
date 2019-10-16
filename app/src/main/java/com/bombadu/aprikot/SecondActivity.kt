@@ -29,23 +29,28 @@ class SecondActivity : AppCompatActivity() {
         wordList.add("Wow!")
         wordList.add("Kotlin")
 
-       // wordList.sort()
-        wordList.sort()
-        wordList.reverse()
+
+        wordList.sort() //sorts alphabetically
+        //wordList.reverse() reverse the list
 
 
-        for (word in wordList) println(word)
-
-        /*for (word in wordList) {
+        //for (word in wordList.indices) println(wordList[word])incremental getting words in list
+        //for (word in wordList) println(word) does the same as above
+        /*for (word in wordList) { does the same thing
             println(word)
 
         }*/
 
-        println(wordList.joinToString())
+        var crazyList = mutableListOf<String>()
 
+        //for (i in wordList.size -1 downTo  0 step 1) println(wordList[i] ) //Decremental for loop
+        for (i in wordList.size -1 downTo  0 step 1 ) crazyList.add(wordList[i])
 
+        //wordsTextView.text = wordList.joinToString()
 
+        wordsTextView.text = crazyList.joinToString()
 
+        //println(wordList.joinToString())
 
 
     }
