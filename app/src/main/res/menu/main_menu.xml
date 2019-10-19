@@ -19,8 +19,8 @@
     </item>
 
     <item
-        android:id="@+id/stock"
-        android:title="Stock Screen"
+        android:id="@+id/news"
+        android:title="News Headlines"
         android:orderInCategory="10"
         app:showAsAction="never">
 

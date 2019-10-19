@@ -132,8 +132,8 @@ class MainActivity : AppCompatActivity() {
                 showCustomDialog()
             }
 
-            if (item.itemId == R.id.stock){
-                startActivity(Intent(this, StockActivity::class.java))
+            if (item.itemId == R.id.news){
+                startActivity(Intent(this, NewsActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

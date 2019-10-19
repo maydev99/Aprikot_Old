@@ -20,7 +20,6 @@
         </activity>
 
         <activity android:name=".SecondActivity" />
-        <activity android:name=".StockActivity" />
         <activity android:name=".NewsActivity" />
     </application>
 
