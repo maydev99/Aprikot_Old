@@ -4,7 +4,16 @@ public class ListItem {
         private String authorText;
         private String descriptionText;
         private String imageUrlText;
+        private String titleText;
         private int imageImage;
+
+    public String getTitleText() {
+        return titleText;
+    }
+
+    public void setTitleText(String titleText) {
+        this.titleText = titleText;
+    }
 
     public String getAuthorText() {
         return authorText;
