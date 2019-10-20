@@ -4,24 +4,15 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuItemCompat
-import org.json.JSONArray
+import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
-
 import java.io.IOException
-import java.util.ArrayList
-import java.util.PriorityQueue
-
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import java.util.*
 
 class NewsActivity : AppCompatActivity() {
 

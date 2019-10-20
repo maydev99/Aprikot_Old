@@ -26,4 +26,12 @@
 
     </item>
 
+    <item
+        android:id="@+id/new_pro"
+        android:title="News Pro"
+        android:orderInCategory="3"
+        app:showAsAction="never">
+
+    </item>
+
 </menu>

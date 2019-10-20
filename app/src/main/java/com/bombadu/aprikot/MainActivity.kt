@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, NewsActivity::class.java))
+        //startActivity(Intent(this, NewsActivity::class.java))
 
 
 
@@ -135,6 +135,11 @@ class MainActivity : AppCompatActivity() {
             if (item.itemId == R.id.news){
                 startActivity(Intent(this, NewsActivity::class.java))
             }
+
+            if (item.itemId == R.id.new_pro) {
+                startActivity(Intent(this, NewsProActivity::class.java))
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
