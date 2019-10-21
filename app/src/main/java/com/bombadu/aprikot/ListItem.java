@@ -6,6 +6,15 @@ public class ListItem {
         private String imageUrlText;
         private String titleText;
         private int imageImage;
+        private String webUrlText;
+
+    public String getWebUrlText() {
+        return webUrlText;
+    }
+
+    public void setWebUrlText(String webUrlText) {
+        this.webUrlText = webUrlText;
+    }
 
     public String getTitleText() {
         return titleText;

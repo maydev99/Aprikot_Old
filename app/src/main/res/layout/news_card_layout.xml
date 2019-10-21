@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="340dp"
-    android:orientation="vertical"
     android:id="@+id/news_card_container"
-    android:background="@color/colorPrimaryDark">
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@color/colorPrimaryDark" />
 
 
     <androidx.cardview.widget.CardView
@@ -34,7 +35,7 @@
                     android:id="@+id/news_card_image_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="8dp"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/ic_launcher" />
 
@@ -45,34 +46,36 @@
                 android:id="@+id/title_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:textStyle="bold"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:text="Title"
+                android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textColor="@android:color/black"/>
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/byLine_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:paddingLeft="16dp"
-                android:textSize="12sp"
                 android:paddingRight="16dp"
                 android:text="by Michael May"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/description_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:textSize="16sp"
+                android:layout_height="110dp"
+                android:paddingTop="8dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:text="asdghagsdhhjhjfhsdhfjkhgjhghjghjggjhgjhgjhghgjhgjshdkfhshdjfhjshdjkfhjkshdfjhsjkhdfjkhsjkhkjhk"
-                android:textColor="@android:color/black" />
+                android:text="asdghagsdhhjhjfhsdhfjkhgj"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
 
         </LinearLayout>

@@ -1,6 +1,8 @@
 package com.bombadu.aprikot;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -43,6 +45,7 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
     private ArrayList<String> authorArrayList;
     private ArrayList<String> imageUrlArrayList;
     private ArrayList<String> spinnerArrayList;
+    private ArrayList<String> webUrlArrayList;
     private ArrayList listData;
 
     @Override
@@ -66,9 +69,10 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
         spinnerArrayList = new ArrayList<>();
         spinnerArrayList.add("ars-technica");
         spinnerArrayList.add("engadget");
-        spinnerArrayList.add("mashable");
         spinnerArrayList.add("recode");
+        spinnerArrayList.add("the-next-web");
         spinnerArrayList.add("the-verge");
+        spinnerArrayList.add("the-wall-street-journal");
     }
 
     private void fetchData() {
@@ -77,6 +81,7 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
         descriptionArrayList = new ArrayList<>();
         authorArrayList = new ArrayList<>();
         imageUrlArrayList = new ArrayList<>();
+        webUrlArrayList = new ArrayList<>();
 
 
 
@@ -101,6 +106,7 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
                         String title = jsonIndex.getString("title");
                         String description = jsonIndex.getString("description");
                         String imageUrls = jsonIndex.getString("urlToImage");
+                        String webUrl = jsonIndex.getString("url");
                         String author = jsonIndex.getString("author");
                         if(author.equals("null")) {
                             author = "by Anonymous";
@@ -112,6 +118,7 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
                         descriptionArrayList.add(description);
                         imageUrlArrayList.add(imageUrls);
                         authorArrayList.add(author);
+                        webUrlArrayList.add(webUrl);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -138,12 +145,13 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
 
     private List<ListItem> getListData() {
         List<ListItem> data = new ArrayList<>();
-        for (int i = 0 ; i <titleArrayList.size() && i < descriptionArrayList.size() && i < imageUrlArrayList.size() && i < authorArrayList.size(); i++){
+        for (int i = 0 ; i <titleArrayList.size() && i < descriptionArrayList.size() && i < imageUrlArrayList.size() && i < authorArrayList.size() && i < webUrlArrayList.size(); i++){
             ListItem item = new ListItem();
             item.setAuthorText(authorArrayList.get(i));
             item.setTitleText(titleArrayList.get(i));
             item.setDescriptionText(descriptionArrayList.get(i));
             item.setImageUrlText(imageUrlArrayList.get(i));
+            item.setWebUrlText(webUrlArrayList.get(i));
             data.add(item);
         }
 
@@ -153,6 +161,11 @@ public class NewsProActivity  extends AppCompatActivity implements NewsAdapter.I
 
     @Override
     public void onItemClick(int p) {
+        ListItem item = (ListItem) listData.get(p);
+        String url = item.getWebUrlText();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
 
 
     }
