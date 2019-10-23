@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //startActivity(Intent(this, NewsActivity::class.java))
+        startActivity(Intent(this, NewsProActivity::class.java))
 
 
 

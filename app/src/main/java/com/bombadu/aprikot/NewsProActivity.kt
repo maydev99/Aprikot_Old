@@ -6,76 +6,59 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
-import com.google.gson.JsonObject
-import org.json.JSONArray
+import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
-
 import java.io.IOException
-import java.util.ArrayList
-
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import java.util.*
 
 class NewsProActivity : AppCompatActivity(), NewsAdapter.ItemClickCallback {
-    private var recyclerView: RecyclerView? = null
     private val client = OkHttpClient()
-    private val jsonObject: JsonObject? = null
     private var source = ""
-    private var titleArrayList: ArrayList<String>? = null
-    private var descriptionArrayList: ArrayList<String>? = null
-    private var authorArrayList: ArrayList<String>? = null
-    private var imageUrlArrayList: ArrayList<String>? = null
-    private var spinnerArrayList: ArrayList<String>? = null
-    private var webUrlArrayList: ArrayList<String>? = null
-    private var listData: ArrayList<*>? = null
+    private var titleList = mutableListOf<String>()
+    private var descriptionList = mutableListOf<String>()
+    private var authorList = mutableListOf<String>()
+    private var imageUrlList = mutableListOf<String>()
+    private var spinnerList = mutableListOf<String>()
+    private var webUrlList = mutableListOf<String>()
+    private var listData = mutableListOf<String>()
+    private var recyclerView : RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.news_pro_activity)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        recyclerView = findViewById(R.id.recyclerview)
-
+        recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         populateSpinnerList()
-
-
         source = "ars-technica"
-
-        //fetchData();
-
 
     }
 
     private fun populateSpinnerList() {
-        spinnerArrayList = ArrayList()
-        spinnerArrayList!!.add("ars-technica")
-        spinnerArrayList!!.add("engadget")
-        spinnerArrayList!!.add("recode")
-        spinnerArrayList!!.add("the-next-web")
-        spinnerArrayList!!.add("the-verge")
-        spinnerArrayList!!.add("the-wall-street-journal")
+        //spinnerArrayList = ArrayList()
+        spinnerList.add("ars-technica")
+        spinnerList.add("engadget")
+        spinnerList.add("recode")
+        spinnerList.add("the-next-web")
+        spinnerList.add("the-verge")
+        spinnerList.add("the-wall-street-journal")
     }
 
     private fun fetchData() {
 
-        titleArrayList = ArrayList()
-        descriptionArrayList = ArrayList()
-        authorArrayList = ArrayList()
-        imageUrlArrayList = ArrayList()
-        webUrlArrayList = ArrayList()
+        //titleArrayList = ArrayList()
+        titleList.clear()
+        descriptionList.clear()
+        authorList.clear()
+        imageUrlList.clear()
+        webUrlList.clear()
 
 
         val url =
@@ -107,25 +90,23 @@ class NewsProActivity : AppCompatActivity(), NewsAdapter.ItemClickCallback {
                             author = "by $author"
                         }
 
-                        titleArrayList!!.add(title)
-                        descriptionArrayList!!.add(description)
-                        imageUrlArrayList!!.add(imageUrls)
-                        authorArrayList!!.add(author)
-                        webUrlArrayList!!.add(webUrl)
+                        titleList.add(title)
+                        descriptionList.add(description)
+                        imageUrlList.add(imageUrls)
+                        authorList.add(author)
+                        webUrlList.add(webUrl)
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
 
                 //Similar to Post Execute
-                if (response.isSuccessful) {
-                    runOnUiThread {
-                        listData = getListData() as ArrayList<*>
-                        recyclerView!!.layoutManager = LinearLayoutManager(this@NewsProActivity)
-                        val adapter = NewsAdapter(getListData(), this@NewsProActivity)
-                        recyclerView!!.adapter = adapter
-                        adapter.setItemClickCallback(this@NewsProActivity)
-                    }
+                if (response.isSuccessful) runOnUiThread {
+                    listData = getListData() as MutableList<String>
+                    recyclerView!!.layoutManager = LinearLayoutManager(this@NewsProActivity)
+                    val adapter = NewsAdapter(getListData(), this@NewsProActivity)
+                    recyclerView!!.adapter = adapter
+                    adapter.setItemClickCallback(this@NewsProActivity)
                 }
             }
         })
@@ -136,13 +117,13 @@ class NewsProActivity : AppCompatActivity(), NewsAdapter.ItemClickCallback {
     private fun getListData(): List<ListItem> {
         val data = ArrayList<ListItem>()
         var i = 0
-        while (i < titleArrayList!!.size && i < descriptionArrayList!!.size && i < imageUrlArrayList!!.size && i < authorArrayList!!.size && i < webUrlArrayList!!.size) {
+        while (i < titleList.size && i < descriptionList.size && i < imageUrlList.size && i < authorList.size && i < webUrlList.size) {
             val item = ListItem()
-            item.authorText = authorArrayList!![i]
-            item.titleText = titleArrayList!![i]
-            item.descriptionText = descriptionArrayList!![i]
-            item.imageUrlText = imageUrlArrayList!![i]
-            item.webUrlText = webUrlArrayList!![i]
+            item.authorText = authorList.get(i)
+            item.titleText = titleList[i]
+            item.descriptionText = descriptionList[i]
+            item.imageUrlText = imageUrlList[i]
+            item.webUrlText = webUrlList[i]
             data.add(item)
             i++
         }
@@ -152,7 +133,7 @@ class NewsProActivity : AppCompatActivity(), NewsAdapter.ItemClickCallback {
     }
 
     override fun onItemClick(p: Int) {
-        val item = listData!![p] as ListItem
+        val item = listData[p] as ListItem
         val url = item.webUrlText
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
@@ -163,10 +144,10 @@ class NewsProActivity : AppCompatActivity(), NewsAdapter.ItemClickCallback {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val spinnerArrayAdapter =
-            ArrayAdapter(this, R.layout.list_item_spinner, R.id.list_item_item, spinnerArrayList!!)
+            ArrayAdapter(this, R.layout.list_item_spinner, R.id.list_item_item, spinnerList)
         menuInflater.inflate(R.menu.news_pro_menu, menu)
         val item = menu.findItem(R.id.npSpinner)
-        val spinner = MenuItemCompat.getActionView(item) as Spinner
+        val spinner = item.getActionView() as Spinner
         spinner.adapter = spinnerArrayAdapter
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
