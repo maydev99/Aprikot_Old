@@ -34,4 +34,12 @@
 
     </item>
 
+    <item
+        android:id="@+id/gallery"
+        android:title="Gallery"
+        android:orderInCategory="8"
+        app:showAsAction="never">
+
+    </item>
+
 </menu>

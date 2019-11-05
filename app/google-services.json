@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "136884894225",
+    "firebase_url": "https://may-chat-e138e.firebaseio.com",
+    "project_id": "may-chat-e138e",
+    "storage_bucket": "may-chat-e138e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136884894225:android:d1926c9ffc1dfa42f70fb0",
+        "android_client_info": {
+          "package_name": "com.bombadu.aprikot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBELc0LjxwJJgi8WKK287C4tXdR2x2ZWgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136884894225-7qojq6p74l7ehf21trdvqieoja7t40k4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "xdroidloft.com.MayChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136884894225:android:80fbbd2058610325",
+        "android_client_info": {
+          "package_name": "com.droidloft.maychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136884894225-crbt7s71rt574j97ql0kjqjhttcr155b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.droidloft.maychat",
+            "certificate_hash": "d57f078eeb8434d9584a708757a57d8190f8a0df"
+          }
+        },
+        {
+          "client_id": "136884894225-ifetu0lbvhrre3uvg2bb6kep225mural.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.droidloft.maychat",
+            "certificate_hash": "1c752e89ad16ebeba7aea4163e297016c32c03e0"
+          }
+        },
+        {
+          "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBELc0LjxwJJgi8WKK287C4tXdR2x2ZWgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136884894225-7qojq6p74l7ehf21trdvqieoja7t40k4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "xdroidloft.com.MayChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136884894225:android:911a80efaba98621",
+        "android_client_info": {
+          "package_name": "com.droidloft.maychatadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136884894225-gvn74dcah0e3mnc32u4nv21mi3bhhrja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.droidloft.maychatadmin",
+            "certificate_hash": "d57f078eeb8434d9584a708757a57d8190f8a0df"
+          }
+        },
+        {
+          "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBELc0LjxwJJgi8WKK287C4tXdR2x2ZWgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136884894225-ooris86b9ku6h8lrmmnvi8ibioqb4be6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136884894225-7qojq6p74l7ehf21trdvqieoja7t40k4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "xdroidloft.com.MayChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

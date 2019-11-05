@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, NewsProActivity::class.java))
+        //startActivity(Intent(this, NewsProActivity::class.java))
 
 
 
@@ -138,6 +138,10 @@ class MainActivity : AppCompatActivity() {
 
             if (item.itemId == R.id.new_pro) {
                 startActivity(Intent(this, NewsProActivity::class.java))
+            }
+
+            if(item.itemId == R.id.gallery) {
+                startActivity(Intent(this, GalleryActivity::class.java))
             }
 
         }
