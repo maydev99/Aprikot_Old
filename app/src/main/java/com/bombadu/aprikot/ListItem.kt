@@ -8,5 +8,11 @@ class ListItem {
     var imageImage: Int = 0
     var webUrlText: String? = null
 
+    var galleryUrlText: String? = null
+    var galleryImage: Int = 0
+    var galleryCaptionText: String? = null
+    var galleryTimeDateText: String? = null
+    var galleryUploaderText: String? = null
+
 
 }
