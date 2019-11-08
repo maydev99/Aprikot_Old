@@ -50,12 +50,12 @@ RecyclerView.Adapter<GalleryAdapter.RecyclerHolder>() {
         val uploaderTextView: TextView = itemView.findViewById(R.id.gallery_uploadedby_text_view)
         val captionTextView: TextView = itemView.findViewById(R.id.gallery_caption_text_view)
         val timeTextView: TextView = itemView.findViewById(R.id.gallery_time_text_view)
-        val cardImageView: ImageView = itemView.findViewById(R.id.galleryCardView)
+        val cardImageView: ImageView = itemView.findViewById(R.id.gallery_card_image_view)
         private val cardContainer: View = itemView.findViewById(R.id.gallery_card_container)
 
-        init {
+        /*init {
             cardContainer.setOnClickListener(this)
-        }
+        }*/
 
         override fun onClick(v: View?) {
             itemClickCallback!!.onItemClick(adapterPosition)

@@ -50,8 +50,9 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:text="Uploaded by Michael May"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
 
             <TextView
