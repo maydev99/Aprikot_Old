@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.gallery_activity.*
 
-class GalleryActivity : AppCompatActivity()  {
+class GalleryActivity : AppCompatActivity(), GalleryAdapter.ItemClickCallback  {
 
 
     var uploaderList = mutableListOf<String>()
@@ -101,7 +101,7 @@ class GalleryActivity : AppCompatActivity()  {
         galleryRecyclerView!!.layoutManager = LinearLayoutManager(this@GalleryActivity)
         val adapter = GalleryAdapter(getListData(), this@GalleryActivity)
         galleryRecyclerView!!.adapter = adapter
-        //adapter.setItemClickCallback(this@GalleryActivity)
+        adapter.setItemClickCallback(this@GalleryActivity)
     }
 
     private fun getListData(): List<ListItem> {
@@ -121,12 +121,15 @@ class GalleryActivity : AppCompatActivity()  {
         return data
     }
 
-  /*  override fun onItemClick(p: Int) {
+    override fun onItemClick(p: Int) {
+        var postion = p.toString()
+
         val  item = listData[p] as ListItem
-        val url = item.imageUrlText
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(url)
+        val url = item.galleryUrlText.toString()
+        //Toast.makeText(this, url, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, ImageFullActivity::class.java)
+        intent.putExtra("image_url", url)
         startActivity(intent)
 
-    }*/
+    }
 }

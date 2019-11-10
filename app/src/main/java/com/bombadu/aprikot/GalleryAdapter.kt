@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class GalleryAdapter internal  constructor(private val listData: List<ListItem>, c: Context):
+class GalleryAdapter internal  constructor(private val listData: List<ListItem>, c: Context) :
 RecyclerView.Adapter<GalleryAdapter.RecyclerHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(c)
     private var itemClickCallback: ItemClickCallback? = null
@@ -47,19 +47,22 @@ RecyclerView.Adapter<GalleryAdapter.RecyclerHolder>() {
 
     inner class RecyclerHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
     View.OnClickListener {
+        override fun onClick(v: View?) {
+            itemClickCallback!!.onItemClick(adapterPosition)
+        }
+
         val uploaderTextView: TextView = itemView.findViewById(R.id.gallery_uploadedby_text_view)
         val captionTextView: TextView = itemView.findViewById(R.id.gallery_caption_text_view)
         val timeTextView: TextView = itemView.findViewById(R.id.gallery_time_text_view)
         val cardImageView: ImageView = itemView.findViewById(R.id.gallery_card_image_view)
         private val cardContainer: View = itemView.findViewById(R.id.gallery_card_container)
 
-        /*init {
-            cardContainer.setOnClickListener(this)
-        }*/
+        init {
 
-        override fun onClick(v: View?) {
-            itemClickCallback!!.onItemClick(adapterPosition)
+            cardContainer.setOnClickListener(this)
         }
+
+
 
     }
 }
