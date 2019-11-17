@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, GalleryActivity::class.java))
+        //startActivity(Intent(this, GalleryActivity::class.java))
 
 
 
@@ -142,6 +142,10 @@ class MainActivity : AppCompatActivity() {
 
             if(item.itemId == R.id.gallery) {
                 startActivity(Intent(this, GalleryActivity::class.java))
+            }
+
+            if (item.itemId == R.id.local_screen) {
+                startActivity(Intent(this, LocalScreen::class.java))
             }
 
         }

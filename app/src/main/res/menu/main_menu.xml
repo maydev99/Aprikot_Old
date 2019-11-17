@@ -42,4 +42,12 @@
 
     </item>
 
+    <item
+        android:id="@+id/local_screen"
+        android:title="Local"
+        android:orderInCategory="2"
+        app:showAsAction="never">
+
+    </item>
+
 </menu>
